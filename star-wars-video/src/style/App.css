@@ -23,6 +23,19 @@
   color: #61dafb;
 }
 
+.Tile-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Tile{
+  flex-basis:30%;
+
+}
+
+.Tile-openingCrawl{
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -3,7 +3,7 @@ import './style/App.css';
 import Tile from "./Tile";
 
 const TileList = (props) => (
-        <div>
+        <div className="Tile-list">
             {props.filmList.map((film) => {
                 return <Tile key={film.key}{...film}/>
             })}
