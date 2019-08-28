@@ -16,7 +16,7 @@ export default ({ filmList, update }) => {
         <div className="searchbar form-group">
             <input
                 type="text"
-                className="form-control"
+                className="form-control search-form"
                 placeholder="Search films by name..."
                 onChange={dataSearch}
             />

@@ -6,6 +6,9 @@ const Tile = (props) => (
         <h3 className="Tile-title">{props.titleFilm}</h3>
         <h4 className="Tile-releaseDate">{props.date}</h4>
         <p className="Tile-openingCrawl">{props.openingCrawl}</p>
+        <div className="Characters">
+            <button className="float-right" color="primary">Characters</button>
+        </div>
     </div>
 );
 
