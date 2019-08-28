@@ -54,7 +54,9 @@ class App extends React.Component {
                     filmList={this.InitialData}
                     update={this.updateData.bind(this)}
                 />
+                <div className="container">
                 <TileList filmList={this.state.filmList}/>
+                </div>
             </div>
         );
     }

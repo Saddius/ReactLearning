@@ -2,24 +2,18 @@
   text-align: center;
 }
 
-.Tile-list {
-  display: flex;
-  flex-wrap: wrap;
+.characters{
+  margin-top: auto;
 }
-.Tile{
-  flex-basis:29%;
-  margin:10px;
-}
-
-.Tile-openingCrawl{
-  text-align: left;
+.characters-column{
+  display:flex;
+  flex-direction: column;
 }
 
 .search-form {
   border-radius: 30px 30px 30px 30px;
   width:20%;
   display:initial;
-  /*border-radius: Top-left, Top-right, Bottom-right, Bottom-left;*/
 }
 
 

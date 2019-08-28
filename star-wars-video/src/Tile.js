@@ -2,12 +2,12 @@ import React from 'react';
 import './style/App.css';
 
 const Tile = (props) => (
-    <div className="Tile">
-        <h3 className="Tile-title">{props.titleFilm}</h3>
-        <h4 className="Tile-releaseDate">{props.date}</h4>
-        <p className="Tile-openingCrawl">{props.openingCrawl}</p>
-        <div className="Characters">
-            <button className="float-right" color="primary">Characters</button>
+    <div className="col-sm-4 characters-column">
+        <h3>{props.titleFilm}</h3>
+        <h4>{props.date}</h4>
+        <p>{props.openingCrawl}</p>
+        <div className="characters">
+            <button type="button" className="btn btn-secondary float-right">Characters</button>
         </div>
     </div>
 );
