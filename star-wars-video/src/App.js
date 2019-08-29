@@ -1,23 +1,12 @@
 import React from 'react';
 import './style/App.css';
-import TileList from './TileList';
-import FilmService from './FilmService';
-import SearchBar from "./SearchBar";
+import TileList from './component/TileList';
+import FilmService from './service/FilmService';
+import SearchBar from "./component/SearchBar";
 
 class App extends React.Component {
     state = {
         filmList: []
-        // {
-        //     titleFilm: 'one',
-        //     date: 'date1',
-        //     openingCrawl: 'blabla1'
-        // },
-        // {
-        //     titleFilm: 'two',
-        //     date: 'date2',
-        //     openingCrawl: 'blabla2'
-        // }
-
     };
 
     constructor(props) {
@@ -47,9 +36,6 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                {/*<header className="App-header">*/}
-
-                {/*</header>*/}
                 <SearchBar
                     filmList={this.InitialData}
                     update={this.updateData.bind(this)}

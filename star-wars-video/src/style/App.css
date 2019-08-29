@@ -1,20 +1,21 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.characters{
-  margin-top: auto;
+.characters {
+    margin-top: auto;
 }
-.characters-column{
-  display:flex;
-  flex-direction: column;
+
+.characters-column {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
 }
 
 .search-form {
-  border-radius: 30px 30px 30px 30px;
-  width:20%;
-  display:initial;
+    border-radius: 30px 30px 30px 30px;
+    width: 20%;
+    display: initial;
 }
-
 
 
