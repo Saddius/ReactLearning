@@ -1,15 +1,10 @@
 import React from 'react';
 
-export default ({ filmList, update }) => {
+export default ({ update }) => {
     const dataSearch = e => {
         const value = e.target.value.toLowerCase();
-
-        const filter = filmList.filter(film => {
-            return film.titleFilm.toLowerCase().includes(value);
-        });
-
         update({
-            filmList: filter
+            searchedWord: value
         });
     };
     return (

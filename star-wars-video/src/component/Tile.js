@@ -1,7 +1,8 @@
 import React from 'react';
+
 import '../style/App.css';
 
-class Tile extends React.Component {
+class Tile extends React.PureComponent {
 
     state = {
         isWatched: false
@@ -15,11 +16,12 @@ class Tile extends React.Component {
 
     render() {
         let isWatchedFilm = this.state.isWatched ? 'Seen' : 'Not Seen';
+        const {titleFilm, date, openingCrawl} = this.props;
         return (
             <div className="col-sm-4 characters-column">
-                <h3>{this.props.titleFilm}</h3>
-                <h4>{this.props.date}</h4>
-                <p>{this.props.openingCrawl}</p>
+                <h3>{titleFilm}</h3>
+                <h4>{date}</h4>
+                <p>{openingCrawl}</p>
                 <div className="characters">
                     <button onClick={this.watchClick}
                             className="btn btn-light float-left">{isWatchedFilm}</button>

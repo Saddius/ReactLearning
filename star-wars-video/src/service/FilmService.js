@@ -1,7 +1,6 @@
 class FilmService {
 
-   static getFilmData = () => {
-        let url = 'https://swapi.co/api/films/'
+   static getFilmData = (url) => {
         return fetch(url)
             .then((result) => {
                 if (result.ok) {
@@ -10,8 +9,8 @@ class FilmService {
             })
     };
 
-   static receiveFilmInfo = async () => {
-        let response = await this.getFilmData();
+   static receiveFilmInfo = async (url) => {
+        let response = await this.getFilmData(url);
         let i = 0;
         return response.results.map((element) => {
             return {

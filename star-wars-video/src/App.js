@@ -1,47 +1,54 @@
 import React from 'react';
-import './style/App.css';
+
 import TileList from './component/TileList';
 import FilmService from './service/FilmService';
 import SearchBar from "./component/SearchBar";
 
-class App extends React.Component {
+import './style/App.css';
+
+class App extends React.PureComponent {
+
     state = {
-        filmList: []
+        filmList: [],
+        searchedWord:'',
+        hasError: false
     };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            filmList: []
-        };
+    componentDidMount() {
         this.loadData();
     }
 
     loadData() {
-        FilmService.receiveFilmInfo()
+        const url = 'https://swapi.co/api/films/';
+        FilmService.receiveFilmInfo(url)
             .then((list) => {
-                this.InitialData = list;
                     this.setState({
-                            filmList: this.InitialData
+                            filmList: list
                         }
                     )
                 }
             )
+            .catch(() => this.setState({hasError: true}))
     }
 
-    updateData(config) {
+    updateData = (config) => {
         this.setState(config);
-    }
+    };
 
     render() {
+        const filter = this.state.filmList.filter(film => {
+            return film.titleFilm.toLowerCase().includes(this.state.searchedWord);
+        });
+        if (this.state.hasError){
+            return <p>ERROR</p>;
+        }
         return (
             <div className="App">
                 <SearchBar
-                    filmList={this.InitialData}
-                    update={this.updateData.bind(this)}
+                    update={this.updateData}
                 />
                 <div className="container">
-                <TileList filmList={this.state.filmList}/>
+                <TileList filmList={filter}/>
                 </div>
             </div>
         );
