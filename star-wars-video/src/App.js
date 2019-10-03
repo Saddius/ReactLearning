@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { filmsFetchData, searchedWordReceived } from './actions/filmsActions';
+import {filmListUpdate, filmsFetchData, searchedWordReceived} from './actions/filmsActions';
 import TileList from './component/TileList';
 import FilmService from './service/FilmService';
 import SearchBar from "./component/SearchBar";
+import configureStore from "./store/configureStore";
 
 import './style/App.css';
+
+const store = configureStore();
 
 class App extends React.PureComponent {
 
@@ -29,11 +32,27 @@ class App extends React.PureComponent {
         this.setState(config);
     };
 
+    watchClick = (titleFilm) => {
+        const watchedFilms = this.props.films.map(film => {
+            if (film.titleFilm === titleFilm) {
+                film.isWatched = !film.isWatched;
+            }
+            return film;
+        });
+        store.dispatch(filmListUpdate(watchedFilms));
+        this.forceUpdate();
+    };
+
     render() {
-        // const filter = this.props.films.filter(film => {
-        //     return film.titleFilm.toLowerCase().includes(this.props.word);
-        // });
-        const filter = this.props.films;
+        let filter;
+        if(this.props.word) {
+            filter = this.props.films.filter(film => {
+                return film.titleFilm.toLowerCase().includes(this.props.word);
+            });
+        } else {
+            filter = this.props.films;
+        }
+        // const filter = this.props.films;
         if (this.props.hasError){
             return <p>ERROR</p>;
         }
@@ -43,7 +62,7 @@ class App extends React.PureComponent {
                     update={this.updateData}
                 />
                 <div className="container">
-                <TileList filmList={filter}/>
+                    <TileList filmList={filter} watchClick={this.watchClick}/>
                 </div>
             </div>
         );

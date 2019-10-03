@@ -11,12 +11,23 @@ export function itemsHasErrored(state = false, action) {
 export function films(state = [], action) {
     switch (action.type) {
         case 'FILM_FETCH_DATA_SUCCESS':
-            return action.filmList;
+        case 'FILMS_UPDATE':
+            return action.films;
 
         default:
             return state;
     }
 }
+
+// export function films(state = [], action) {
+//     switch (action.type) {
+//         case 'FILMS_UPDATE':
+//             return action.films;
+//
+//         default:
+//             return state;
+//     }
+// }
 
 export function word(state = '', action) {
     switch (action.type) {

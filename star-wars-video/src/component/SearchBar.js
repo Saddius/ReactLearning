@@ -1,11 +1,17 @@
 import React from 'react';
 
-export default ({ update }) => {
+import configureStore from "../store/configureStore";
+import {searchedWordReceived} from "../actions/filmsActions";
+
+const store = configureStore();
+
+const search = ({ update }) => {
     const dataSearch = e => {
         const value = e.target.value.toLowerCase();
-        update({
-            searchedWord: value
-        });
+        // update({
+        //     searchedWord: value
+        // });
+        store.dispatch(searchedWordReceived(value))
     };
     return (
         <div className="searchbar form-group">
@@ -18,3 +24,5 @@ export default ({ update }) => {
         </div>
     );
 };
+
+export default search;

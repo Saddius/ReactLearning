@@ -8,6 +8,13 @@ export function filmListData(films) {
     }
 }
 
+export function filmListUpdate(films) {
+    return {
+        type: 'FILMS_UPDATE',
+        films
+    }
+}
+
 export function searchedWordReceived(searchedWord) {
     return {
         type: 'SEARCHED_WORD_RECEIVED',

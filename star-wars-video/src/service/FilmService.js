@@ -1,5 +1,5 @@
+export const URL = 'https://swapi.co/api/films/';
 class FilmService {
-
    static getFilmData = (url) => {
         return fetch(url)
             .then((result) => {
@@ -9,8 +9,8 @@ class FilmService {
             })
     };
 
-   static receiveFilmInfo = async (url) => {
-        let response = await this.getFilmData(url);
+   static receiveFilmInfo = async () => {
+        let response = await this.getFilmData(URL);
         let i = 0;
         return response.results.map((element) => {
             return {
